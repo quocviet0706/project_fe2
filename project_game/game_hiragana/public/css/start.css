@@ -1,0 +1,26 @@
+button {outline: none;}
+ 
+body {height: 100%; width: 100%; margin: 0;}
+ 
+/* Khung game */
+.login {
+    position: relative;
+    width: 1550px;
+    height: 650px;
+    border: 1px solid #ccc; 
+    background: url('../images/phusi1.jpg'); 
+}
+ /* Nút chơi game */
+#play_btn {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    background-color: transparent;
+    border: 0; font-size: 48px;
+}
+#play_btn> a:hover{
+    background: yellow;
+    border-radius: 10px;
+}
+    

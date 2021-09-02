@@ -1,0 +1,69 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button, input, textarea{
+  outline: none;
+  padding: 10px;
+}
+.main-screen{
+  background: url('https://4.bp.blogspot.com/-54_VDXLOXI8/XGso03-fJTI/AAAAAAAACns/1zPPLFcTOLQ270ay6yt1X885VRmjIeuTwCKgBGAs/w1920-h1080-c/mount-fuji-city-japan-landscape-scenery-8K-169.jpg');
+  animation: changeBackground;
+  transition: 3s;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.board{
+  position: relative;
+  text-align: center;
+  background:rgba(0,0,0,.2);
+  height: 600px;
+}
+.word{
+  content: 'demoRandStar';
+  width: 100px;
+  height: 100px;
+  background: pink;
+  border-radius: 50%;
+  position: absolute;
+  left: 40%;
+  top: 20px;
+  animation: MoveUpDown 7s forwards;
+  text-align: center;
+}
+.controls{
+  position: absolute;
+  bottom: 0;
+  left: auto;
+}
+#btnRestart{
+  display: none;
+}
+#answer{
+  display: block;
+  background: transparent;
+  width: 100%;
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: .5;
+  border: none;
+}
+@keyframes changBackground {
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes MoveUpDown {
+  0%{
+    top: 20px;
+  }
+  100% {
+    top: 450px;
+  }
+}
