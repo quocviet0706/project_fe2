@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/css/index.css">
+    <title>Hirigana</title>
+</head>
+
+<body>
+    <!-- Modal Setting -->
+    <div class="modal fade bd-example-modal-sm" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content storemodal--bg">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Store </h5>
+                    <button type="button" class="close btn btn-dark" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="store-body-info mb-1">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="store-body-info__support-info">
+                                    <p>Name: <span> ... </span></p>
+                                    <p>Qty: <span> ... </span></p>
+                                    <p>Point: <span> ... </span></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="store-body-info__support-img">
+                                    <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="store-body-items d-flex">
+                        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid">
+                        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid">
+                        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid">
+                        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSaveChange">BUY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Setting -->
+    <div class="modal fade bd-example-modal-sm" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn btn-dark" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li> Custom Bubble
+                            <div class="custom-color d-flex">
+                                <input type="color" class="form-control form-control-color" id="colorInput1" value="#ffe6ff" title="Choose your color">
+                                <input type="color" class="form-control form-control-color" id="colorInput2" value="#ffccff" title="Choose your color">
+                                <input type="color" class="form-control form-control-color" id="colorInput3" value="#ffb3ff" title="Choose your color">
+                                <input type="color" class="form-control form-control-color" id="colorInput4" value="#ff99ff" title="Choose your color">
+                                <input type="color" class="form-control form-control-color" id="colorInput5" value="#ff80ff" title="Choose your color">
+                            </div>
+                            <div class="demo-bubble bubble-layout">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-brightness">
+                                <input type="range" min="1" max="100" value="50" class="slider-brightness" id="sliderBrightness">
+                                <p id="brightnessValue"></p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveChange">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-screen img-fluid">
+        <div class="board" id="boardPlay">
+            <div class="row">
+                <div class="col-md-6 col-lg-12">
+                    <div class="controls">
+                        <!-- audio nền -->
+                        <audio controls hidden id="music-bg">
+                            <source src="./public/audio/Candy Crush Saga cho Android - nhacchuong.me.mp3" type="audio/mp3">
+                        </audio>
+                        <!-- paused and continue -->
+                        <label for="pause">
+                            <p class="icon-pause" ><i class="fas fa-pause"></i></p>
+                        </label>
+                        <input type="checkbox" hidden name="" id="pause">
+                        <!-- change music -->
+                        <label for="music-setting">
+                          <p class="icon-pause"><i id="volume" class="fas fa-volume-mute"></i> </p>
+                        </label>
+                        <input type="checkbox" hidden name="" id="music-setting">
+                        <!-- restart -->
+
+
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#settingModal"> Setting </button>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#storeModal"> Store </button>
+                        <!-- <button id="btnRestart" class="btn btn-info">RESTART</button> -->
+                        <button id="btnstart" class="btn btn-info">restart</button>
+                        <!-- <button id="btnStop" class="btn btn-info">STOP</button> -->
+                        <!-- <button id="btnPaused" class="btn btn-info">PAUSED</button> -->
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-12">
+                    <div class="support">
+                        <label for="point">POINT: </label>
+                        <input type="text" name="point" value="0" id="point">
+                        <input type="text" name="answer" placeholder="Type here..." id="answer" value="1">
+                    </div>
+                </div>
+                <div class="screen-play text-white fs-2">
+                    <div class="word bubble-layout paused"></div>
+                </div>
+                <div class="support position-absolute d-flex justify-content-center" style="bottom: 10px">
+                    <button id="arrows" class="btn btn-info"> ARROWS </button>
+                    <div class="progress" style="height: 20px; width: 100px">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" id="specialSupport" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="module" src="./public/js/index.js"></script>
+
+</body>
+
+</html>
