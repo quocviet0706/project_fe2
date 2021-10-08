@@ -1,0 +1,104 @@
+body,
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#introduce {
+    height: 100%;
+    position: relative;
+}
+
+.introduce__bg-img {
+    background: url('https://p0.piqsels.com/preview/617/1002/494/pressed-flower-close-up-painting.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.introduce__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.introduce__content-body {
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgba(0, 0, 0, .3);
+    border: .5px solid rgba(0, 0, 0, .3);
+    padding: 0px 20px 50px;
+}
+
+#content {
+    height: 100%;
+    position: relative;
+}
+
+.content__bg-img {
+    background: url('https://wallpaperbat.com/img/61482-japan-snow-wallpaper-top-free-japan-snow-background.jpg');
+    filter: blur(1px);
+    height: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content__login-form {
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgba(0, 0, 0, .3);
+    border: .5px solid rgba(0, 0, 0, .3);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 0px 20px 50px;
+}
+
+.content__btn--rounded {
+    margin-top: 15px;
+    color: white;
+    font-weight: 400;
+    width: 100%;
+    border-radius: 50px;
+    background: linear-gradient(to right, #ffe6ff, #ffccff, #ffb3ff, #ff99ff, #ff80ff);
+}
+
+.content__lbl,
+.content__input {
+    font-weight: lighter;
+    border: none;
+    outline: none;
+}
+
+.content__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: 10px 5px;
+}
+
+.content__form-group--frm--position {
+    margin: 20px 0;
+}
+
+
+    
