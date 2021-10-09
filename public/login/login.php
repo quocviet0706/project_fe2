@@ -7,7 +7,7 @@
      * Nếu session đã tồn tại thì thực hiện đến trang chủ:
      */
     if(isset($_SESSION['username'])==TRUE && isset($_SESSION['password'])==TRUE) {
-      header('location:index.php');
+      header('location:../../index.php');
     }
     require_once "../config.php";
     require_once "../models/db.php";

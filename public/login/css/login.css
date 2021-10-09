@@ -39,7 +39,7 @@ html {
 
 .introduce__content-body {
     font-weight: bold;
-    color: black;
+    color: #fff;
     border-radius: 5px;
     box-shadow: 3px 3px rgba(0, 0, 0, .3);
     border: .5px solid rgba(0, 0, 0, .3);

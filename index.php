@@ -1,7 +1,7 @@
 <?php
       session_start();
   if(isset($_SESSION['username'])==false && isset($_SESSION['password'])==false) {
-    header('Location: ./public/login/login.php');
+    header('location:./public/login/login.php');
    
   }
 ?> 
@@ -20,45 +20,40 @@
     
     <!-- Modal Store --> 
     <div class="modal fade bd-example-modal-sm" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
-     <div class="modal-dialog modal-dialog-centered modal--size" role="document"> 
-      <div class="modal-content storemodal--bg"> 
+     <div class="modal-dialog modal-dialog-centered" role="document"> 
+      <div class="modal-content storemodal--bg text-white"> 
        <div class="modal-header"> 
         <h5 class="modal-title"> STORE </h5> 
-        <button type="button" class="close btn btn-outline-danger" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
+        <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
        </div> 
        <div class="modal-body"> 
         <div class="store-body-info mb-1"> 
          <div class="row"> 
           <div class="col-6"> 
            <div class="store-items-info"> 
-            <p>Name: <span> ... </span></p>
-           <p class="money"><span> 10</span></p>
-           <div  style="font-weight: bold; font-size: 18px;">
-             Cung mua<span class="cungdamua"></span> 
-             </div>
-          
+            <p>Name: <span id="itemName"> ... </span></p>
+            <p class="money">Price: <span id="itemPrice">...</span></p>
+            <p>Arrows: <span id="itemQty">...</span></p>
            </div> 
           </div> 
           <div class="col-6"> 
            <div class="store-body-img"> 
-            <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid" style="max-width: 100%; max-height: 100%;"> 
+            <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid" id="mainItemImg" style="max-width: 60%; max-height: 40%;"> 
            </div> 
           </div> 
          </div> 
         </div> 
       
-        <div class="store-body-items"> 
-        <div class="price-cover" >
-            Gia: <span class="Price" >10</span>
-              </div>
-        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid" height="300px"> 
-          <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid" height="300px"> 
-         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid" height="300px"> 
-         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid" height="300px">
+        <div class="store-body-items">
+        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
+          <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
+         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
+         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px">
         </div> 
        </div> 
        <div class="modal-footer"> 
-        <button type="button" class="btn btn-outline-primary" id="btnBuy">BUY</button> 
+        <p class="current-point">Current Point: <span id="storeCurrentPoint">0</span></p>
+        <button type="button" class="btn btn-primary" id="btnBuy">BUY</button> 
        </div> 
       </div> 
      </div> 
@@ -149,17 +144,15 @@
       </div>
     </div>
     <div class="main-screen img-fluid"> 
-     <div class="row" id="boardPlay" <div=""> 
+     <div class="row" id="boardPlay"> 
        <div class="col-md-5 col-lg-5 col-xl-5 col-sm-12"> 
         <div class="controls"> 
           <div class="main-screen-navigation d-flex justify-content-center">
             <button class="nav-btn-pause btn--custom" id="btnRestart"> <i class="fas fa-redo"></i> </button> 
             <button class="nav-btn-continute btn--custom" id="btnContinue"> <i class="far fa-play-circle"></i> </button> 
             <button class="nav-btn-stop btn--custom" id="btnStop"> <i class="far fa-stop-circle"></i> </button> 
-            <label for="store-cb">
             <button class="nav-btn-shop btn--custom" id="btnShop"> <i class="fas fa-store" data-toggle="modal" data-target="#storeModal"></i> </button> 
-            </label>
-            <input type="checkbox" hidden   name="" id="store-cb">
+            <input type="checkbox" hidden name="" id="store-cb">
             <button class="nav-btn-setting btn--custom" id="btnSetting" data-toggle="modal" data-target="#settingModal"> <i class="fas fa-cogs"></i> </button> 
             <button class="nav-btn-pause btn--custom" id="btnPaused"> <i class="far fa-pause-circle"></i> </button> 
           
@@ -182,7 +175,7 @@
        <div class="arrow-support d-flex justify-content-center"> 
       
         <button id="arrows" class="btn btn-outline-info">
-          <i class="far fa-paper-plane" id="support-normal"><span class="turn" >1</span> </i>
+          <i class="far fa-paper-plane" id="support-normal"><span id="turn">1</span> </i>
           <i class="fas fa-fighter-jet" id="support-supper"></i>
         </button> 
         <div class="progress progress--custom"> 

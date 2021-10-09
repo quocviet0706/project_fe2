@@ -1,51 +1,62 @@
+
 import ConfigBoard from './config-boardplay.js';
-let arrJPWord= new Map();
- arrJPWord.set('a','あ');
-    // .set('i','い')
-    // .set('u','う')
-    // .set('e','え')
-    // .set('o','お')
-    // .set('ka','か')
-    // .set('ki','き')
-    // .set('ku','く')
-    // .set('ke','け')
-    // .set('ko','こ')
-    // .set('sa','さ')
-    // .set('shi','し')
-    // .set('su','す')
-    // .set('se','せ')
-    // .set('so','そ')
-    // .set('ta','た')
-    // .set('chi','ち')
-    // .set('tsu','つ')
-    // .set('te','て')
-    // .set('to','と')
-    // .set('na','な')
-    // .set('ni','に')
-    // .set('nu','ぬ')
-    // .set('ne','ね')
-    // .set('no','の')
-    // .set('ha','は')
-    // .set('hi','ひ')
-    // .set('fu','ふ')
-    // .set('he','へ')
-    // .set('ho','ほ')
-    // .set('ma','ま')
-    // .set('mi','み')
-    // .set('mu','む')
-    // .set('me','め')
-    // .set('mo','も')
-    // .set('ya','や')
-    // .set('yu','ゆ')
-    // .set('yo','よ')
-    // .set('ra','ら')
-    // .set('ri','り')
-    // .set('ru','る')
-    // .set('re','れ')
-    // .set('ro','ろ')
-    // .set('wa','わ')
-    // .set('wo','を')
-    // .set('n','ん');
+updateBGList_Setting();
+let arrJPWord = new Map();
+arrJPWord.set('a','あ')
+    .set('i','い')
+    .set('u','う')
+    .set('e','え')
+    .set('o','お')
+    .set('ka','か')
+    .set('ki','き')
+    .set('ku','く')
+    .set('ke','け')
+    .set('ko','こ')
+    .set('sa','さ')
+    .set('shi','し')
+    .set('su','す')
+    .set('se','せ')
+    .set('so','そ')
+    .set('ta','た')
+    .set('chi','ち')
+    .set('tsu','つ')
+    .set('te','て')
+    .set('to','と')
+    .set('na','な')
+    .set('ni','に')
+    .set('nu','ぬ')
+    .set('ne','ね')
+    .set('no','の')
+    .set('ha','は')
+    .set('hi','ひ')
+    .set('fu','ふ')
+    .set('he','へ')
+    .set('ho','ほ')
+    .set('ma','ま')
+    .set('mi','み')
+    .set('mu','む')
+    .set('me','め')
+    .set('mo','も')
+    .set('ya','や')
+    .set('yu','ゆ')
+    .set('yo','よ')
+    .set('ra','ら')
+    .set('ri','り')
+    .set('ru','る')
+    .set('re','れ')
+    .set('ro','ろ')
+    .set('wa','わ')
+    .set('wo','を')
+    .set('n','ん')
+    .set('1','一')
+    .set('2','二')
+    .set('3','三')
+    .set('4','四')
+    .set('5','五')
+    .set('6','六')
+    .set('7','七')
+    .set('8','八')
+    .set('9','九');
 
  let startStatus = false;
  let level = 5000;
@@ -82,6 +93,11 @@ var music = document.querySelector('#music');
 var  tick =document.querySelector('#tick');
 var have_Music = false;
 let txtBackgroundChoose;
+let defaultTurn = 3;
+let turn = document.getElementById('turn');
+turn.textContent = defaultTurn;
+let currentPoint = 0;
+const storeCurrentPoint = document.getElementById('storeCurrentPoint');
 
 
 // Setting Chooses Background
@@ -232,11 +248,12 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
  
  // Stop game: but hidden button
  function gameStop(){
+   let prevPoint = parseInt(point.value);
+   updateCurrentPoint(prevPoint);
    startStatus = false;
-   console.log('end');
    clearInterval(start);
    pointLevel = 0;
-   document.getElementById('point').value = 0;
+   point.value = 0;
    level = 5000;
    gameStatus = false;
    support = false;
@@ -248,6 +265,9 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
    specialSupport.style.width = `${90}%`;
    document.getElementById('btnShop').style.display = "inline";
    document.getElementById('btnSetting').style.display = "inline";
+   document.getElementById('point-status-blur').style.display = "none";
+   document.getElementById('point-status-smile').style.display = "none";
+   document.getElementById('point-status-angry').style.display = "inline";
  }
  
  //Interval game play
@@ -258,7 +278,7 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
        pointLevel = prePoint;
        levelUp = true;
      }
-   
+
      //Update level(time)
      clearInterval(start);
      if (levelUp){
@@ -275,6 +295,12 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
    }
  }
  
+ //Update point got by user
+ function updateCurrentPoint(prevPoint) {
+    currentPoint += prevPoint;
+    storeCurrentPoint.textContent = currentPoint;
+ }
+
  //Btn Pause
  btnPaused.addEventListener('click', (event) => {
    clearInterval(start);
@@ -405,18 +431,13 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
    //Arrows support event(click)
    arrow.addEventListener('click', (event) => {
      let check = checkExistSpecialClass(arrows, 'btn-outline-danger');
-      console.log("support");
-     if(check){
-       if (superSupport){ 
-        console.log("support");
-         screenPlay.innerHTML = '';
-         superSupport = false;
-         arrow.classList.replace('btn-outline-danger','btn-outline-info');
-         specialSupport.style.width = `${0}%`;
-         document.getElementById('support-normal').style.display = "inline";
-         document.getElementById('support-supper').style.display = "none";
-     
-       }
+     if(check && superSupport){
+        screenPlay.innerHTML = '';
+        superSupport = false;
+        arrow.classList.replace('btn-outline-danger','btn-outline-info');
+        specialSupport.style.width = `${0}%`;
+        document.getElementById('support-normal').style.display = "inline";
+        document.getElementById('support-supper').style.display = "none";
      } else {
        if (support) {
          support = false;
@@ -429,7 +450,6 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
        }
      }
    });
-   //click thực hiên lượt chơi
  
    
    //Loop bubbles 
@@ -437,25 +457,28 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
      let txtType = element.getAttribute('data-before');
      //Event(click) on bubble after use arrows support
       element.addEventListener('click', (event) => {
-        if (support ==true&&(Number)(document.querySelector('.turn').innerHTML) > 0){
-            document.querySelector('.turn').innerHTML = (Number)(document.querySelector('.turn').innerHTML) -1;
+        let turnQty = defaultTurn;
+        if (support == true && turnQty > 0){
+          console.log("Have support ...");
           screenPlay.removeChild(element);
           tick.play();
           if (txtType !== 'trap') pointUp(txtType);
           support = false;
           arrow.classList.replace('btn-outline-warning','btn-outline-info');
+          turn.textContent = turnQty - 1;
+          defaultTurn--;
+          console.log(defaultTurn);
           answer.focus();
         } else {
+          console.log("No support ...");
           if(startStatus) {
-            if (element.getAttribute('data-tick') === 'none'&&(Number)(document.querySelector('.turn').innerHTML) <= 0) {
-              document.getElementById("arrows").disabled = true;
-              arrow.classList.replace('btn-outline-info','btn-danger');
+            //Comment Fail -- function tick on bubble
+            if (element.getAttribute('data-tick') === 'none') {
               element.setAttribute('data-tick', 'tick');
               element.classList.add("bubble--tick");
             } else {
               element.setAttribute('data-tick', 'none');
               element.classList.remove("bubble--tick");
-              document.getElementById("arrows").disabled = false;
             }  
             console.log(element.getAttribute('data-tick')); 
           }
@@ -478,9 +501,6 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
                screenPlay.removeChild(element);
              }
            }
-           document.getElementById('point-status-blur').style.display = "none";
-           document.getElementById('point-status-smile').style.display = "none";
-           document.getElementById('point-status-angry').style.display = "inline";
          }
       });
    });
@@ -494,27 +514,44 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
   });
 }
 
-//Mua cung
+//Info Store Item
+let storeArrow = new Map();
+storeArrow.set(0, {name: "item 1", price: 1, arrowQty: 1})
+.set(1, {name: "item 2", price: 2, arrowQty: 2})
+.set(2, {name: "item 3", price: 3, arrowQty: 3})
+.set(3, {name: "item 4", price: 4, arrowQty: 4});
+let itemInfo;
+const itemName = document.getElementById('itemName');
+const itemPrice = document.getElementById('itemPrice');
+const itemQty = document.getElementById('itemQty');
+const mainItemImg = document.getElementById('mainItemImg');
+const storeItems = document.querySelectorAll('.storeItem');
+const btnBuy = document.getElementById('btnBuy');
+storeItems.forEach((item,index) => {
+  item.addEventListener('click', () => {
+    itemInfo = storeArrow.get(index);
+    itemName.textContent = itemInfo.name;
+    itemPrice.textContent = itemInfo.price;
+    itemQty.textContent = itemInfo.arrowQty;
+    let itemImg = item.src;
+    mainItemImg.src = itemImg;
+  });
+});
 
-document.querySelectorAll('.store-body-items').forEach((e)=>{
-  e.addEventListener('click',()=>{
-   let sotienmuacung  = (Number)(e.querySelector('.price-cover').querySelector('.Price').innerHTML);
-   let money = document.querySelector('.money');
-   let tienconlai = (Number)(money.innerHTML) - sotienmuacung;
-   let cungdangcocuauser = document.querySelectorAll('.turn');
-
-   if(tienconlai<0)
-   {
-      alert("Bạn không đủ tiền");
-   }
-   else{
-      let xacnhan = confirm("Bạn đồng ý mua");
-      if(xacnhan){
-          money.innerHTML = tienconlai;
-          cungdangcocuauser.forEach((ex)=>{
-              ex.innerHTML = (Number)(ex.innerHTML)+(Number)(e.querySelector('.cungdamua').innerHTML)
-          });
+btnBuy.addEventListener('click', () => {
+  if(itemInfo === undefined) {
+    alert("Pls pick your favorite item !!!");
+  } else {
+    if (confirm('Are you sure you want to buy ?')) {
+      if (currentPoint >= itemInfo.price) {
+        let txtTurn = defaultTurn + itemInfo.arrowQty;
+        let txtPrice = itemInfo.price * -1;
+        updateCurrentPoint(txtPrice);
+        defaultTurn = txtTurn;
+        turn.textContent = defaultTurn;
+      } else {
+        alert("You can't buy !!!");
       }
-   }
-  })
-})
+    } 
+  }
+});
