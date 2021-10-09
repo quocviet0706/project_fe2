@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-    <link rel="icon" href="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png"> 
+    <link rel="icon" href="https://agency.marketingtochina.com/wp-content/uploads/2019/08/nanojapan-600x600.png"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/index.css"> 
@@ -21,39 +21,39 @@
     <!-- Modal Store --> 
     <div class="modal fade bd-example-modal-sm" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
      <div class="modal-dialog modal-dialog-centered" role="document"> 
-      <div class="modal-content storemodal--bg text-white"> 
+      <div class="modal-content storemodal--bg"> 
        <div class="modal-header"> 
         <h5 class="modal-title"> STORE </h5> 
-        <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
+        <button type="button" class="close btn btn-outline-danger" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
        </div> 
        <div class="modal-body"> 
         <div class="store-body-info mb-1"> 
          <div class="row"> 
-          <div class="col-6"> 
+          <div class="col-7"> 
            <div class="store-items-info"> 
             <p>Name: <span id="itemName"> ... </span></p>
             <p class="money">Price: <span id="itemPrice">...</span></p>
             <p>Arrows: <span id="itemQty">...</span></p>
            </div> 
           </div> 
-          <div class="col-6"> 
+          <div class="col-5"> 
            <div class="store-body-img"> 
-            <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid" id="mainItemImg" style="max-width: 60%; max-height: 40%;"> 
+            <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid" id="mainItemImg"> 
            </div> 
           </div> 
          </div> 
         </div> 
       
         <div class="store-body-items">
-        <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
-          <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
-         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px"> 
-         <img src="https://w7.pngwing.com/pngs/720/421/png-transparent-bow-and-arrow-bowhunting-archery-arrow-bow-angle-white-triangle-thumbnail.png" class="img-fluid storeItem" height="300px">
+          <img src="https://cdn0.iconfinder.com/data/icons/japan-50/48/bow_weapon_japan_culture_military-512.png" class="img-fluid storeItem" height="300px"> 
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bow_and_arrow_drawing.png" class="img-fluid storeItem" height="300px"> 
+          <img src="https://i.pinimg.com/originals/47/a4/21/47a4219b9768425838ee2bed357c0e71.png" class="img-fluid storeItem" height="300px"> 
+          <img src="https://www.apexhunting.com.au/assets/thumbL/118311-1012.png?20210309040400" class="img-fluid storeItem" height="300px">
         </div> 
        </div> 
        <div class="modal-footer"> 
         <p class="current-point">Current Point: <span id="storeCurrentPoint">0</span></p>
-        <button type="button" class="btn btn-primary" id="btnBuy">BUY</button> 
+        <button type="button" class="btn btn-outline-primary" id="btnBuy">BUY</button> 
        </div> 
       </div> 
      </div> 
@@ -111,22 +111,22 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="bgSlides">
                   <div class="numbertext">1 / 4</div>
-                  <img src="./public/images/I Captured Sakura Bloom In Japan.png" class="img-fluid" width="100%" height="100%">
+                  <img src="https://free4kwallpapers.com/uploads/originals/2020/10/25/winter-in-shirakawa-japan-wallpaper.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
             
                 <div class="bgSlides fade">
                   <div class="numbertext">2 / 4</div>
-                  <img src="./public/images/Yufuin Travel Guide_ 10 Best Places To Visit In Yufuin Japan - Expatolife.png" class="img-fluid" width="100%" height="100%">
+                  <img src="https://www.thebalance.com/thmb/gF4v7ZVXURl4T1bJV6-vW5ZfujA=/735x0/sunset-at-kiyomizu-dera-temple-and-cherry-blossom-season--sakura--on-spring-time-in-kyoto--japan-577613124-5c51bbe146e0fb0001c0dd97.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
             
                 <div class="bgSlides fade">
                   <div class="numbertext">3 / 4</div>
-                  <img src="https://wallpapercave.com/wp/wp6289800.jpg" class="img-fluid" width="100%" height="100%">
+                  <img src="./public/images/2766987.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
               
                 <div class="bgSlides fade">
                   <div class="numbertext">4 / 4</div>
-                  <img src="https://wallpapercave.com/wp/wp5333475.jpg" class="img-fluid" width="100%" height="100%">
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
             
                 <!-- Next and previous buttons -->

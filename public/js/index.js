@@ -1,5 +1,6 @@
 
 import ConfigBoard from './config-boardplay.js';
+
 updateBGList_Setting();
 let arrJPWord = new Map();
 arrJPWord.set('a','あ')
@@ -102,7 +103,11 @@ const storeCurrentPoint = document.getElementById('storeCurrentPoint');
 
 // Setting Chooses Background
 //Check Screen Size when resize
-window.addEventListener('resize', updateBGList_Setting);
+window.addEventListener('resize', () => {
+  let txtBackground = document.getElementsByClassName("bgSlides")[slideIndex - 1].children[1].src;
+  mainScreen.style.backgroundImage = `url(${txtBackground})`;
+  updateBGList_Setting();
+});
 btnNext.addEventListener('click', () => {
   showSlides(slideIndex += 1);
 });
@@ -110,10 +115,6 @@ btnPrev.addEventListener('click', () => {
   showSlides(slideIndex += -1);
 });
 showSlides(slideIndex);
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
 function updateBGList_Setting() {
   let listBG = Array.from(ConfigBoard.getListBG(screen.width));
@@ -309,10 +310,7 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
         bubble.style.webkitAnimationPlayState = "running";
         f1();
         startStatus = true;
-       music.muted = false;
-      
- 
-        
+        music.muted = false;
     }else if(bubble.style.webkitAnimationPlayState === "running" || bubble.style.webkitAnimationPlayState === ""){
         bubble.style.webkitAnimationPlayState = "paused"; // assuming you want to toggle
         startStatus = false;
@@ -516,10 +514,10 @@ function checkExistSpecialClass(e=document.body,className='unknow'){
 
 //Info Store Item
 let storeArrow = new Map();
-storeArrow.set(0, {name: "item 1", price: 1, arrowQty: 1})
-.set(1, {name: "item 2", price: 2, arrowQty: 2})
-.set(2, {name: "item 3", price: 3, arrowQty: 3})
-.set(3, {name: "item 4", price: 4, arrowQty: 4});
+storeArrow.set(0, {name: "毛利元就", price: 2, arrowQty: 2})
+.set(1, {name: "武田信玄", price: 4, arrowQty: 4})
+.set(2, {name: "上杉謙信", price: 8, arrowQty: 8})
+.set(3, {name: "織田信長", price: 10, arrowQty: 12});
 let itemInfo;
 const itemName = document.getElementById('itemName');
 const itemPrice = document.getElementById('itemPrice');
@@ -527,6 +525,8 @@ const itemQty = document.getElementById('itemQty');
 const mainItemImg = document.getElementById('mainItemImg');
 const storeItems = document.querySelectorAll('.storeItem');
 const btnBuy = document.getElementById('btnBuy');
+
+//Click item and show info
 storeItems.forEach((item,index) => {
   item.addEventListener('click', () => {
     itemInfo = storeArrow.get(index);
@@ -538,6 +538,7 @@ storeItems.forEach((item,index) => {
   });
 });
 
+//Btn buy
 btnBuy.addEventListener('click', () => {
   if(itemInfo === undefined) {
     alert("Pls pick your favorite item !!!");
