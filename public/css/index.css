@@ -99,6 +99,9 @@ body, html{
     border: none;
     color: #fff;
   }
+  #answer::placeholder {
+    color: #fff;
+  }
   #arrows{
     outline: none;
     background: transparent;
