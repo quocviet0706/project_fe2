@@ -8,7 +8,7 @@
      * Lập tức chuyển đến trang admin.
      */
     if(isset($_SESSION['username'])==TRUE && isset($_SESSION['password'])==TRUE) {
-      header('Location:/game_fe2_project/index.html');
+      header('Location:/project_fe2/index.php');
     }
     require_once "../config.php";
     require_once "../models/db.php";
@@ -78,8 +78,8 @@ $user = new User;
         if(count($user) > 0) {
             $sign_up_successfully = FALSE;
             echo '<div style="color:red;font-style:italic;margin-left: 43%;
-            margin-top: -543px;
-            position: absolute;;">Username already exists!</div>';
+            margin-top: -313px;
+            position: absolute;">Username already exists!</div>';
         }
 
         // Đăng ký thành công:
@@ -87,7 +87,10 @@ $user = new User;
             $insertResult = -1;
             $insertResult = User::insertUser($_POST['username'], password_hash($_POST["password"], PASSWORD_DEFAULT));
             if($insertResult > 0) {
-                echo '<div style="color:green;font-style:italic;padding:15px 0 0 0;">You have successfully signed up!<br>Please login now!</div>';
+                echo '<div style="color:green;font-style:italic;margin-left: 38%;
+                padding-top: -273px;
+                position: absolute;
+                margin-top: -313px;">You have successfully signed up!<br>Please login now!</div>';
 
                 
             }

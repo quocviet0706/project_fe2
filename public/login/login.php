@@ -33,8 +33,13 @@ $user = new User;
     <div id='introduce'>
         <div class='introduce__bg-img'></div>
         <div class='introduce__content'>
-            <div class='introduce__content-body'>
-                INTRODUCE
+        <div class='introduce__content-body'>
+                INTRODUCE: <span class="play-game"> Xin chào mọi người, dưới đây là một tựa game giành cho những bạn có sở thích học tiếng nhật và nâng cao trình độ của mình qua những chữ cái tiếng Nhật.
+                Game dựa trên bảng chữ cái giúp người dùng dễ dàng ghi nhớ chúng hơn. Người chơi sẽ gõ các ký tự latin hoặc chữ số tương ứng trên bàn phím. Nếu gõ 
+                đúng, bong bóng sẽ bể và người chơi được +1 điểm. Nếu người chơi để 1 bong bóng chạm sàn thì trò chơi kết thúc.Trong các bong bóng, thỉnh thoảng sẽ có bong bóng đính kèm ngôi sao, nếu gõ 
+                đúng bong bóng có sao thì được +2 điểm Thỉnh thoảng sẽ xuất hiện các bong bóng màu đen. Người chơi không được gõ bong bóng đen mà phải để nó chạm sàn rồi biến mất. Nếu gõ trúng bong bóng đen thì 
+                trò chơi kết thúc. Chức năng bắn bong bóng. Người chơi có sẵn 3 mũi tên để bắn bể bong bóng nào mình không biết gõ hoặc gõ không kịp. Người chơi click chọn mũi tên, sau đó click lên bong bóng để bắn bể. Nếu bắn hết 3 mũi tên có sẵn, người chơi có thể đổi điểm 
+                để lấy thêm mũi tên. Tốc độ rơi của bong bóng sẽ tăng dần theo thời gian. Và cuối cùng chỉ cần bạn đăng nhập và chơi thôi nào?? </span>
             </div>
             <div class='introduce__controls text-center'>
                 <a href="#content" class='btn btn-dark'>LOGIN</a>
@@ -77,16 +82,22 @@ $user = new User;
           if(password_verify($_POST['password'], $user[0]['password'])==TRUE) {
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['password'] = $user[0]['password'];
-            header('Location:/game_fe2_project/index.php');
+           header('location:../../index.php');
           
           }
           else {
-            echo '<div style="color:red;font-style:italic;padding:15px 0 0 0;">You have entered wrong username or password!</div>';
+            echo '<div style="color:red;font-style:italic;margin-left: 34%;
+            padding-top: -273px;
+            position: absolute;
+            margin-top: -313px;">You have entered wrong username or password!</div>';
           }
         }
         
         else {
-          echo '<div style="color:red;font-style:italic;padding:15px 0 0 0;">You have entered wrong username or password!</div>';
+          echo 'div style="color:red;font-style:italic;margin-left: 34%;
+          padding-top: -273px;
+          position: absolute;
+          margin-top: -313px;">You have entered wrong username or password!</div>';
         }
       }
     ?>

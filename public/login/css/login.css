@@ -115,7 +115,7 @@ html {
 @media only screen and (min-width: 400px) {
     .introduce__bg-img {
         /* background: url('https://c4.wallpaperflare.com/wallpaper/651/587/719/torii-gates-lake-monochrome-wallpaper-preview.jpg'); */
-        background: url('../images/anh-nen-full-hd-mua-dong_024452506.jpg');
+        background: url('../images/hinh-nen-1920x1080-133-1.jpg');
     }
     .content__bg-img {
         filter: blur(3px);
@@ -144,5 +144,9 @@ html {
         border-bottom: 1px solid rgba(0, 0, 0, .3);
         background: transparent;
         color: white;
+    }
+    .play-game{
+        color: pink;
+       
     }
 }
