@@ -70,16 +70,16 @@ if (isset($_POST["username"]) == TRUE && isset($_POST["password"]) == TRUE && is
             <form action="register.php" method="POST">
                 <div class="form-group content__form-group--frm--position">
                     <label for="inputEmail1" class='content__lbl'>Email address</label>
-                    <input type="email" class="form-control content__input" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username" id="username">
+                    <input type="email" class="form-control content__input" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username" id="username" required>
                 </div>
 
                 <div class="form-group content__form-group--frm--position">
                     <label for="inputPassword1" class='content__lbl'>Password</label>
-                    <input type="password" class="form-control content__input" id="inputPassword1" placeholder="Enter new password" name="password" id="password">
+                    <input type="password" class="form-control content__input" id="inputPassword1" placeholder="Enter new password" name="password" id="password" required>
                 </div>
                 <div class="form-group content__form-group--frm--position">
                     <label for="new password" class='content__lbl'>Confirm password</label>
-                    <input type="password" class="form-control content__input" id="password" aria-describedby="" placeholder="Enter conffirm password" name="password1" id="password1">
+                    <input type="password" class="form-control content__input" id="password" aria-describedby="" placeholder="Enter conffirm password" name="password1" id="password1" required>
                 </div>
                 <button type="submit" class="btn content__btn--rounded">SIGN UP</button>
             </form>
