@@ -18,12 +18,15 @@ $user = new User;
 /**
  * Check user password and password1
  */
-$sign_up_successfully = TRUE;
+
 if (isset($_POST["username"]) == TRUE && isset($_POST["password"]) == TRUE && isset($_POST["password1"]) == TRUE) {
+    $sign_up_successfully = true;
     // Kiểm tra password xem có khớp nhau hay không:
     if ($_POST["password"] != $_POST["password1"]) {
         $sign_up_successfully = FALSE;
         echo '<span style="color:red;margin-left: 43%;">Password no match!</span>';
+    }else{
+        $sign_up_successfully = true;
     }
 
     // Kiểm tra xem username đã tồn tại hay chưa:
