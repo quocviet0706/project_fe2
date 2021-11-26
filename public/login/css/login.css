@@ -114,7 +114,8 @@ html {
 @media only screen and (min-width: 400px) {
     .introduce__bg-img {
         /* background: url('https://c4.wallpaperflare.com/wallpaper/651/587/719/torii-gates-lake-monochrome-wallpaper-preview.jpg'); */
-        background: url('../images/hinh-nen-1920x1080-133-1.jpg');
+        background: url('../../images/3394730.jpg');
+        filter: blur(1px);
     }
     .content__bg-img {
         filter: blur(3px);

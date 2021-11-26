@@ -1,111 +1,12 @@
 import ConfigBoard from "./config-boardplay.js";
 updateBGList_Setting();
-let arrJPWord = new Map();
-arrJPWord
-  .set("a", "あ")
-  .set("i", "い")
-  .set("u", "う")
-  .set("e", "え")
-  .set("o", "お")
-  .set("ka", "か")
-  .set("ki", "き")
-  .set("ku", "く")
-  .set("ke", "け")
-  .set("ko", "こ")
-  .set("sa", "さ")
-  .set("shi", "し")
-  .set("su", "す")
-  .set("se", "せ")
-  .set("so", "そ")
-  .set("ta", "た")
-  .set("chi", "ち")
-  .set("tsu", "つ")
-  .set("te", "て")
-  .set("to", "と")
-  .set("na", "な")
-  .set("ni", "に")
-  .set("nu", "ぬ")
-  .set("ne", "ね")
-  .set("no", "の")
-  .set("ha", "は")
-  .set("hi", "ひ")
-  .set("fu", "ふ")
-  .set("he", "へ")
-  .set("ho", "ほ")
-  .set("ma", "ま")
-  .set("mi", "み")
-  .set("mu", "む")
-  .set("me", "め")
-  .set("mo", "も")
-  .set("ya", "や")
-  .set("yu", "ゆ")
-  .set("yo", "よ")
-  .set("ra", "ら")
-  .set("ri", "り")
-  .set("ru", "る")
-  .set("re", "れ")
-  .set("ro", "ろ")
-  .set("wa", "わ")
-  .set("wo", "を")
-  .set("n", "ん")
-  .set("1", "一")
-  .set("2", "二")
-  .set("3", "三")
-  .set("4", "四")
-  .set("5", "五")
-  .set("6", "六")
-  .set("7", "七")
-  .set("8", "八")
-  .set("9", "九");
-
-let startStatus = false;
-let level = 5000;
-let support = false,
-  superSupport = false,
-  specialSupportGPA = 0;
-let pointLevel = 0,
-  prePoint = 0;
-let start;
-let gameStatus = false;
-let levelUp = false;
-let div, randStarBubble;
-var slideIndex = 1;
-const btnContinue = document.getElementById("btnContinue");
-const btnStop = document.getElementById("btnStop");
-const btnRestart = document.getElementById("btnRestart");
-const btnPaused = document.getElementById("btnPaused");
-const btnSaveChange = document.getElementById("btnSaveChange");
-const btnNext = document.getElementById("btnNext");
-const btnPrev = document.getElementById("btnPrev");
-const btnSave = document.getElementById("btnSave");
-const screenPlay = document.querySelector(".screen-play");
-const mainScreen = document.querySelector(".main-screen");
-const answer = document.getElementById("answer");
-const point = document.getElementById("point");
-const arrow = document.getElementById("arrows");
-const specialSupport = document.getElementById("specialSupport");
-const customBubble = document.querySelectorAll(".bubble-layout");
-const colorPicked = document.querySelectorAll(".form-control-color");
-let backgroundBubble;
-const listColorPicked = new Map();
-const brightnessValue = document.getElementById("brightnessValue");
-const sliderBrightness = document.getElementById("sliderBrightness");
-brightnessValue.innerHTML = sliderBrightness.value;
-const board = document.getElementById("boardPlay");
-const music = document.querySelector("#music");
-const tick = document.querySelector("#tick");
-let txtBackgroundChoose;
-let defaultTurn = 3;
-let turn = document.getElementById("turn");
-turn.textContent = defaultTurn;
-let currentPoint = 0;
-const storeCurrentPoint = document.getElementById("storeCurrentPoint");
 
 // Setting Chooses Background
 //Check Screen Size when resize
 window.addEventListener("resize", () => {
   let txtBackground =
-    document.getElementsByClassName("bgSlides")[slideIndex - 1].children[1].src;
+    document.getElementsByClassName("bgSlides")[Math.floor(Math.random() * 9)]
+      .children[1].src;
   mainScreen.style.backgroundImage = `url(${txtBackground})`;
   updateBGList_Setting();
 });
@@ -170,28 +71,28 @@ btnSaveChange.addEventListener("click", (e) => {
 });
 
 //GPA === 10 will up percent, 100% -> ready
-function updateValue(e) {
-  //GPA not enough to up percent
-  if (specialSupportGPA < 2) {
-    specialSupportGPA += 1;
-    //console.log('Not enough to up percent');
-  } //Percent up, GPA = 0
-  else {
-    let txtPoint = parseInt(specialSupport.style.width);
-    specialSupport.style.width = `${txtPoint + 10}%`;
-    specialSupportGPA = 0;
-    //console.log('Percent UP');
-    //Ready to use special support
-    if (specialSupport.style.width === "100%") {
-      arrow.className = "";
-      arrow.className += "btn btn-outline-danger";
-      document.getElementById("support-normal").style.display = "none";
-      document.getElementById("support-supper").style.display = "inline";
-      superSupport = true;
-      console.log("Special Support Active");
+function updateValue() {
+  if (parseInt(specialSupport.style.width) >= 100) {
+    arrow.className = "";
+    arrow.className += "btn btn-outline-danger";
+    document.getElementById("support-normal").style.display = "none";
+    document.getElementById("support-supper").style.display = "inline";
+    specialSupport.classList.replace("bg-info", "bg-danger");
+    superSupport = true;
+    //console.log("Special Support Active");
+  } else {
+    //GPA not enough to up percent
+    if (specialSupportGPA < 2) {
+      specialSupportGPA += 1;
+    } //Percent up, GPA = 0
+    else {
+      let txtPoint = parseInt(specialSupport.style.width);
+      specialSupport.style.width = `${txtPoint + 10}%`;
+      specialSupportGPA = 0;
+      //console.log('Percent UP');
     }
+    //console.log(superSupport);
   }
-  console.log(superSupport);
 }
 
 function checkExistSpecialClass(e = document.body, className = "unknow") {
@@ -252,12 +153,7 @@ function gameStop() {
   level = 5000;
   gameStatus = false;
   support = false;
-  superSupport = false;
-  arrow.className = "btn btn-outline-info";
   document.getElementById("arrows").disabled = false;
-  document.getElementById("support-normal").style.display = "inline";
-  document.getElementById("support-supper").style.display = "none";
-  specialSupport.style.width = `${90}%`;
   document.getElementById("btnShop").style.display = "inline";
   document.getElementById("btnSetting").style.display = "inline";
   document.getElementById("point-status-blur").style.display = "none";
@@ -289,12 +185,6 @@ function f1() {
   }
 }
 
-//Update point got by user
-function updateCurrentPoint(prevPoint) {
-  currentPoint += prevPoint;
-  storeCurrentPoint.textContent = currentPoint;
-}
-
 //Paused game
 let pausedGame = () => {
   clearInterval(start);
@@ -322,23 +212,49 @@ btnPaused.addEventListener("click", (event) => {
 //Change level(time) went level up
 function changeTime() {
   if (level !== 1000) {
-    level = level - 1000;
+    level = level - 500;
   }
 }
 
+// Convert id bubble to 32bit integer
+function stringToHash(string) {
+  var hash = 0;
+
+  if (string.length == 0) return hash;
+
+  for (let i = 0; i < string.length; i++) {
+    let char = string.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+
+  return hash;
+}
+
 //Check type of bubble
-function checkBubble(txtType = "normal", element, result) {
+function checkBubble(txtType = "normal", element, result, bubbleId) {
   prePoint = parseInt(point.value);
   switch (txtType) {
     case "trap": {
-      gameStop();
-      break;
+      if (element.getAttribute("bubble-id").length === 1) {
+        gameStop();
+        break;
+      } else {
+        //console.log("Item remove exist !!!");
+      }
     }
     default: {
-      if (element.innerHTML === result) {
-        screenPlay.removeChild(element);
-
-        pointUp(txtType);
+      let hashId = stringToHash(bubbleId);
+      if (element.getAttribute("bubble-id") === bubbleId) {
+        if (element.getAttribute("bubble-id").length === 1) {
+          element.setAttribute("bubble-id", `d${bubbleId}${hashId}`);
+          if (element.innerHTML === result) {
+            element.remove();
+            pointUp(txtType);
+          }
+        } else {
+          //console.log("Item remove exist !!!");
+        }
       }
       break;
     }
@@ -360,7 +276,7 @@ function pointUp(txtType = "normal") {
       break;
     }
   }
-  updateValue(point);
+  updateValue();
 }
 
 //Create bubble and append to screen play
@@ -380,6 +296,8 @@ function createBubble() {
   }px`;
   div.style.background = `linear-gradient(to right top, ${backgroundBubble.toString()})`;
   div.setAttribute("data-tick", "none");
+  div.setAttribute("bubble-id", idBubble);
+  idBubble += 1;
   randStarBubble = Math.floor(Math.random() * 6) + 1;
   switch (randStarBubble) {
     case 1: {
@@ -405,30 +323,28 @@ function createBubble() {
 
 function checkAnswer(element, listBubble) {
   //  let arrJPWord = ConfigBoard.getHirigana(screen.width);
-  console.log(arrJPWord);
+  //console.log(arrJPWord);
   let answerInput = element.value;
   if (arrJPWord.get(answerInput)) {
     let result = arrJPWord.get(answerInput);
     listBubble.forEach((element) => {
       if (element.getAttribute("data-tick") !== "tick") {
         let txtType = element.getAttribute("data-before");
-        checkBubble(txtType, element, result);
+        let idBubble_Remove = element.getAttribute("bubble-id");
+        checkBubble(txtType, element, result, idBubble_Remove);
       }
     });
     element.focus();
   } else {
     //Case type Blank
-    console.log("Blank");
+    //console.log("Blank");
     element.focus();
   }
 }
 
-//Gameplay:note
-function gamePlay() {
-  createBubble();
-  var demo = document.querySelectorAll(".word");
-  //Arrows support event(click)
-  arrow.addEventListener("click", (event) => {
+//Arrows support event(click)
+arrow.addEventListener("click", (event) => {
+  if (gameStatus) {
     let check = checkExistSpecialClass(arrows, "btn-outline-danger");
     if (check && superSupport) {
       screenPlay.innerHTML = "";
@@ -437,6 +353,7 @@ function gamePlay() {
       specialSupport.style.width = `${0}%`;
       document.getElementById("support-normal").style.display = "inline";
       document.getElementById("support-supper").style.display = "none";
+      specialSupport.classList.replace("bg-danger", "bg-info");
     } else {
       if (support) {
         support = false;
@@ -446,8 +363,13 @@ function gamePlay() {
         arrow.classList.replace("btn-outline-info", "btn-outline-warning");
       }
     }
-  });
+  }
+});
 
+//Gameplay:note
+function gamePlay() {
+  createBubble();
+  var demo = document.querySelectorAll(".word");
   //Loop bubbles
   demo.forEach((element) => {
     let txtType = element.getAttribute("data-before");
@@ -455,18 +377,22 @@ function gamePlay() {
     element.addEventListener("click", (event) => {
       let turnQty = defaultTurn;
       if (support == true && turnQty > 0) {
-        console.log("Have support ...");
-        screenPlay.removeChild(element);
+        //console.log("Have support ...");
+        let bubbleId = element.getAttribute("bubble-id");
+        element.setAttribute(
+          "bubble-id",
+          `d${bubbleId}${stringToHash(bubbleId)}`
+        );
+        element.remove();
         tick.play();
         if (txtType !== "trap") pointUp(txtType);
         support = false;
         arrow.classList.replace("btn-outline-warning", "btn-outline-info");
         turn.textContent = turnQty - 1;
         defaultTurn--;
-        console.log(defaultTurn);
+        //console.log(defaultTurn);
         answer.focus();
       } else {
-        console.log("No support ...");
         if (startStatus) {
           //Comment Fail -- function tick on bubble
           if (element.getAttribute("data-tick") === "none") {
@@ -476,7 +402,7 @@ function gamePlay() {
             element.setAttribute("data-tick", "none");
             element.classList.remove("bubble--tick");
           }
-          console.log(element.getAttribute("data-tick"));
+          //console.log(element.getAttribute("data-tick"));
         }
       }
     });
@@ -494,7 +420,12 @@ function gamePlay() {
           if (txtType !== "trap") {
             gameStop();
           } else {
-            screenPlay.removeChild(element);
+            let bubbleId = element.getAttribute("bubble-id");
+            element.setAttribute(
+              "bubble-id",
+              `d${bubbleId}${stringToHash(bubbleId)}`
+            );
+            element.remove();
           }
         }
       }
@@ -509,56 +440,10 @@ function gamePlay() {
   });
 }
 
-//Info Store Item
-let storeArrow = new Map();
-storeArrow
-  .set(0, { name: "毛利元就", price: 2, arrowQty: 2 })
-  .set(1, { name: "武田信玄", price: 4, arrowQty: 4 })
-  .set(2, { name: "上杉謙信", price: 8, arrowQty: 8 })
-  .set(3, { name: "織田信長", price: 10, arrowQty: 12 });
-let itemInfo;
-const itemName = document.getElementById("itemName");
-const itemPrice = document.getElementById("itemPrice");
-const itemQty = document.getElementById("itemQty");
-const mainItemImg = document.getElementById("mainItemImg");
-const storeItems = document.querySelectorAll(".storeItem");
-const btnBuy = document.getElementById("btnBuy");
-
-//Click item and show info
-storeItems.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    itemInfo = storeArrow.get(index);
-    itemName.textContent = itemInfo.name;
-    itemPrice.textContent = itemInfo.price;
-    itemQty.textContent = itemInfo.arrowQty;
-    let itemImg = item.src;
-    mainItemImg.src = itemImg;
-  });
-});
-
-//Btn buy
-btnBuy.addEventListener("click", () => {
-  if (itemInfo === undefined) {
-    alert("Pls pick your favorite item !!!");
-  } else {
-    if (confirm("Are you sure you want to buy ?")) {
-      if (currentPoint >= itemInfo.price) {
-        let txtTurn = defaultTurn + itemInfo.arrowQty;
-        let txtPrice = itemInfo.price * -1;
-        updateCurrentPoint(txtPrice);
-        defaultTurn = txtTurn;
-        turn.textContent = defaultTurn;
-      } else {
-        alert("You can't buy !!!");
-      }
-    }
-  }
-});
-
 //Blur tab on browser
 document.addEventListener("visibilitychange", function () {
   if (document.hidden) {
-    console.log("hidden...");
+    console.log("hidden");
     clearInterval(start);
     document.querySelectorAll(".word").forEach((bubble) => {
       bubble.style.webkitAnimationPlayState = "paused"; // assuming you want to toggle

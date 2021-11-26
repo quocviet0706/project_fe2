@@ -120,9 +120,7 @@ body, html{
     width: 50%; 
     margin-top: 10px
   }
-  .progress--custom #specialSupport{
-    width: 90%;
-  }
+  
   .settingmodal--bg{
     background: url('https://c4.wallpaperflare.com/wallpaper/648/123/668/life-kanji-japan-wallpaper-preview.jpg');
     background-repeat: no-repeat;
@@ -130,7 +128,7 @@ body, html{
     background-size: cover;
   }
   .storemodal--bg {
-    background: url('https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg?size=626&ext=jpg');
+    background: url('https://ak.picdn.net/shutterstock/videos/13751219/thumb/1.jpg');
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
@@ -253,7 +251,7 @@ body, html{
   @media only screen and (min-width: 400px) {
     .main-screen {
       /* background: url('https://c4.wallpaperflare.com/wallpaper/662/966/394/japan-tokyo-street-building-wallpaper-preview.jpg'); */
-         background: url('https://c.wallhere.com/photos/42/51/Japanese_women_Kyoto_pagoda_Japan-1157749.jpg!d'); 
+         background: url('https://images6.alphacoders.com/585/thumb-1920-585420.jpg'); 
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

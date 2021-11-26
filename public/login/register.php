@@ -23,16 +23,14 @@ if (isset($_POST["username"]) == TRUE && isset($_POST["password"]) == TRUE && is
     // Kiểm tra password xem có khớp nhau hay không:
     if ($_POST["password"] != $_POST["password1"]) {
         $sign_up_successfully = FALSE;
-        echo '<div style="color:red;font-style:italic;margin:15px 0 0 0;">Password does not match!</div>';
+        echo '<span style="color:red;margin-left: 43%;">Password no match!</span>';
     }
 
     // Kiểm tra xem username đã tồn tại hay chưa:
     $user = User::login_checkUsername($_POST['username']);
     if (count($user) > 0) {
         $sign_up_successfully = FALSE;
-        echo '<div style="color:red;font-style:italic;margin-left: 43%;
-            margin-top: -313px;
-            position: absolute;">Username already exists!</div>';
+            echo '<span style="color:red;margin-left: 43%;">Username already exists!</span>';
     }
 
     // Đăng ký thành công:
@@ -40,10 +38,7 @@ if (isset($_POST["username"]) == TRUE && isset($_POST["password"]) == TRUE && is
         $insertResult = -1;
         $insertResult = User::insertUser($_POST['username'], password_hash($_POST["password"], PASSWORD_DEFAULT));
         if ($insertResult > 0) {
-            echo '<div style="color:green;font-style:italic;margin-left: 38%;
-                padding-top: -273px;
-                position: absolute;
-                margin-top: -313px;">You have successfully signed up!<br>Please login now!</div>';
+            echo '<span style="color:green;margin-left: 43%;">You have successfully signed up!</span>';
         }
     }
 }
@@ -56,11 +51,11 @@ if (isset($_POST["username"]) == TRUE && isset($_POST["password"]) == TRUE && is
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="icon" href="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png">
+    <link rel="icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/fuo1nkxqk0mzumflmgam">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/login.css">
-    <title>Hirigana - Register</title>
+    <title>PTying - Register</title>
 </head>
 
 <body>

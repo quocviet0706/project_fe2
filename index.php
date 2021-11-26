@@ -11,11 +11,11 @@ if (isset($_SESSION['username']) == false && isset($_SESSION['password']) == fal
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="icon" href="https://agency.marketingtochina.com/wp-content/uploads/2019/08/nanojapan-600x600.png">
+  <link rel="icon" href="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/fuo1nkxqk0mzumflmgam">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
   <link rel="stylesheet" href="./public/css/index.css">
-  <title>Hirigana</title>
+  <title>PTying</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@ if (isset($_SESSION['username']) == false && isset($_SESSION['password']) == fal
               </div>
               <div class="col-5">
                 <div class="store-body-img">
-                  <img src="https://e7.pngegg.com/pngimages/289/772/png-clipart-japan-euclidean-icon-japan-face-smiley.png" class="img-fluid" id="mainItemImg">
+                  <img src="https://www.tapdoanpnholding.vn/Data/Sites/1/skins/default/img/index-news/bg-pn.png" class="img-fluid" id="mainItemImg">
                 </div>
               </div>
             </div>
@@ -114,22 +114,47 @@ if (isset($_SESSION['username']) == false && isset($_SESSION['password']) == fal
               <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="bgSlides">
-                  <div class="numbertext">1 / 4</div>
+                  <div class="numbertext">1 / 9</div>
                   <img src="https://free4kwallpapers.com/uploads/originals/2020/10/25/winter-in-shirakawa-japan-wallpaper.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
 
                 <div class="bgSlides fade">
-                  <div class="numbertext">2 / 4</div>
+                  <div class="numbertext">2 / 9</div>
                   <img src="https://www.thebalance.com/thmb/gF4v7ZVXURl4T1bJV6-vW5ZfujA=/735x0/sunset-at-kiyomizu-dera-temple-and-cherry-blossom-season--sakura--on-spring-time-in-kyoto--japan-577613124-5c51bbe146e0fb0001c0dd97.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
 
                 <div class="bgSlides fade">
-                  <div class="numbertext">3 / 4</div>
+                  <div class="numbertext">3 / 9</div>
                   <img src="./public/images/2766987.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
 
                 <div class="bgSlides fade">
-                  <div class="numbertext">4 / 4</div>
+                  <div class="numbertext">4 / 9</div>
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
+                </div>
+
+                <div class="bgSlides fade">
+                  <div class="numbertext">5 / 9</div>
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
+                </div>
+
+                <div class="bgSlides fade">
+                  <div class="numbertext">6 / 9</div>
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
+                </div>
+
+                <div class="bgSlides fade">
+                  <div class="numbertext">7 / 9</div>
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
+                </div>
+
+                <div class="bgSlides fade">
+                  <div class="numbertext">8 / 9</div>
+                  <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
+                </div>
+
+                <div class="bgSlides fade">
+                  <div class="numbertext">9 / 9</div>
                   <img src="./public/images/3394730.jpg" class="img-fluid" width="100%" height="100%">
                 </div>
 
@@ -183,7 +208,7 @@ if (isset($_SESSION['username']) == false && isset($_SESSION['password']) == fal
           <i class="fas fa-fighter-jet" id="support-supper"></i>
         </button>
         <div class="progress progress--custom">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" id="specialSupport" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" id="specialSupport"  style="width: 97%" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>
@@ -192,8 +217,9 @@ if (isset($_SESSION['username']) == false && isset($_SESSION['password']) == fal
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="./public/js/dom-selector.js"></script>
   <script type="module" src="./public/js/index.js"></script>
-
+  <script src="./public/js/store.js"></script>
 </body>
 
 </html>

@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3309
--- Generation Time: Oct 09, 2021 at 06:30 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 25, 2021 at 05:47 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,10 +63,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `point`, `qty support`, `id`) VALUES
 ('nguyenquocviet', '$2y$10$xLOyisnGQMWMYf442tFPfuRPJSfHyIN.HEjifHVuRmoVx0jrX9sPG', 0, '', 0),
-('viet@mail.com', '$2y$10$ZYZMjlBhQ1eTd4EDNPd5UuWJsX8/COQS77531bsNXIl4yFGgmzc0u', 0, '', 0),
+('viet@mail.com', '202cb962ac59075b964b07152d234b70', 0, '', 0),
 ('nhu@gmail.com', '$2y$10$I940zNwLA3cd1jJaUTIljut4zlEBYXTBcgopG/iBPj.pHvbVaDqjG', 0, '', 0),
 ('nam@gmail.com', '$2y$10$Cvtn7gRn0La6AKT9K8rJM.CtMg.ZbqxQ/kOT2sa33eI1n.B50cjai', 0, '', 0),
-('', '$2y$10$iM8IsIno1ccEPtK.jZyiUOZAq5l3bHb0mLRBAQ8J4QhdLwNKRNj1a', 0, '', 0);
+('', '$2y$10$iM8IsIno1ccEPtK.jZyiUOZAq5l3bHb0mLRBAQ8J4QhdLwNKRNj1a', 0, '', 0),
+('pn0921997@gmail.com', '$2y$10$kgC9t5I25rKG5Zaxt66O/O3VS8iZMghrE6gGjhfk8qU5CN.x/oKoG', 0, '', 0);
 
 --
 -- Indexes for dumped tables
